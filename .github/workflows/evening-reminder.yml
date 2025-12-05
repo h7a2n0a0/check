@@ -13,4 +13,4 @@ jobs:
     steps:
       - name: Send Evening Reminder
         run: |
-          curl -X GET "https://slack-attendance-jjrlvlcp3-hanas-projects-d45404fb.vercel.app/api/checkout-reminder"
+          curl -X GET "https://check-sigma-flax.vercel.app/api/checkout-reminder"
