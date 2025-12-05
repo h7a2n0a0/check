@@ -1,0 +1,16 @@
+name: 출근 알림 (화-금)
+
+on:
+  schedule:
+    # 매주 화-금 오전 9:45 (KST = UTC+9, 즉 UTC 00:45)
+    - cron: '45 0 * * 2-5'
+  workflow_dispatch: # 수동 실행 가능
+
+jobs:
+  send-morning-reminder:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Send Morning Reminder
+        run: |
+          curl -X GET "https://slack-attendance-jjrlvlcp3-hanas-projects-d45404fb.vercel.app/api/reminder"

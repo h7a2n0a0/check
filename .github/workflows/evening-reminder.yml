@@ -1,0 +1,16 @@
+name: 퇴근 알림 (화-금)
+
+on:
+  schedule:
+    # 매주 화-금 오후 6:45 (KST = UTC+9, 즉 UTC 09:45)
+    - cron: '45 9 * * 2-5'
+  workflow_dispatch: # 수동 실행 가능
+
+jobs:
+  send-evening-reminder:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Send Evening Reminder
+        run: |
+          curl -X GET "https://slack-attendance-jjrlvlcp3-hanas-projects-d45404fb.vercel.app/api/checkout-reminder"
